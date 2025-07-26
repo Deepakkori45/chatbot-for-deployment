@@ -16,7 +16,7 @@ st.set_page_config(
     page_title="AI Assistant Chat",
     page_icon="🤖",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"  # Collapse the sidebar by default (even if not rendered)
 )
 
 # Apply custom CSS
@@ -160,46 +160,6 @@ def display_chat_history(chat):
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
-def render_sidebar():
-    """Render the sidebar"""
-    with st.sidebar:
-        st.title("🤖 AI Chat")
-        
-        # New chat button
-        if st.button("➕ New Chat", use_container_width=True):
-            create_new_chat()
-            st.rerun()
-        
-        st.divider()
-        
-        # Chat history
-        if st.session_state.chats:
-            st.subheader("Chat History")
-            
-            # Sort chats by creation time (newest first)
-            sorted_chats = sorted(
-                st.session_state.chats.values(), 
-                key=lambda x: x['created_at'], 
-                reverse=True
-            )
-            
-            for chat in sorted_chats:
-                is_active = chat['id'] == st.session_state.current_chat_id
-                
-                # Truncate title if too long
-                display_title = chat['title']
-                if len(display_title) > 30:
-                    display_title = display_title[:27] + "..."
-                
-                if st.button(
-                    display_title,
-                    key=f"chat_{chat['id']}",
-                    help=f"Created: {chat['created_at'].strftime('%Y-%m-%d %H:%M')}",
-                    use_container_width=True
-                ):
-                    st.session_state.current_chat_id = chat['id']
-                    st.rerun()
-
 def stream_response(message_placeholder, response):
     """Stream the response character by character"""
     full_response = ""
@@ -248,9 +208,6 @@ def main():
                         st.error("Invalid username or password")
         return # Stop execution until logged in
 
-    # Sidebar rendering (moved here to ensure it's only shown after login)
-    render_sidebar()
-
     # Automatically create a new chat if none exists
     if not st.session_state.current_chat_id:
         create_new_chat()
@@ -294,7 +251,7 @@ def main():
                             # Check if user has interrupted
                             if not st.session_state.is_responding:
                                 break
-                                
+                                  
                             status = get_run_status(st.session_state.client, thread_id, run_id)
                             if status == "completed":
                                 response = get_assistant_response(st.session_state.client, thread_id)
@@ -323,4 +280,4 @@ def main():
             st.session_state.current_message_placeholder = None
 
 if __name__ == "__main__":
-    main() 
+    main()
