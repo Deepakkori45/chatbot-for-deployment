@@ -3,6 +3,7 @@ import openai
 import os
 from dotenv import load_dotenv
 import time
+from typing import List, Dict, Any
 import uuid
 from datetime import datetime
 import logging
@@ -10,7 +11,7 @@ import logging
 # Load environment variables
 load_dotenv()
 
-# Configuration
+# --- Configuration from config.py ---
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_PytLeS8CwhZiswnc11HCsmbO")
 ASSISTANT_SYSTEM_PROMPT = (
@@ -19,11 +20,7 @@ ASSISTANT_SYSTEM_PROMPT = (
     "Please re-ask using topics the database covers. Keep every reply directly focused on the question. "
     "Present the reply as a numbered or bulleted list.’"
 )
-POLLING_INTERVAL = 1
-
-# UI Styling
-st.set_page_config(page_title="AI Assistant Chat", page_icon="🤖", layout="wide")
-st.markdown("""
+CUSTOM_CSS = """
 <style>
 .error-box {
     background: #f8d7da;
@@ -37,40 +34,59 @@ st.markdown("""
     margin-top: 2rem;
 }
 </style>
-""", unsafe_allow_html=True)
+"""
+POLLING_INTERVAL = 1  # seconds
+# -------------------------------------
 
-# Logging
+# Page configuration
+st.set_page_config(
+    page_title="AI Assistant Chat",
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="collapsed"  # Collapse the sidebar by default (even if not rendered)
+)
+
+# Apply custom CSS
+st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+# Configure logging to log OpenAI interactions
 logging.basicConfig(filename='openai_logs.txt', level=logging.INFO, format='%(asctime)s - %(message)s')
 
-# OpenAI key
-openai.api_key = OPENAI_API_KEY
+# OpenAI API Key setup
+openai.api_key = 'YOUR_API_KEY'
 
-# Allowed users
-ALLOWED_USERS = {
-    "admin": "1234",
-    "deepak": "1234"
-}
+def log_openai_interaction(prompt, assistant_response):
+    """Log OpenAI interaction both to OpenAI logs and locally"""
+    try:
+        # Log input and output to the OpenAI logs file
+        logging.info(f"User Prompt: {prompt}")
+        logging.info(f"Assistant Response: {assistant_response}")
+        return assistant_response
+    except Exception as e:
+        logging.error(f"Error: {str(e)}")
+        return None
 
-# Session state init
 def initialize_session_state():
-    defaults = {
-        'chats': {},
-        'current_chat_id': None,
-        'client': None,
-        'last_error': None,
-        'is_responding': False,
-        'current_message_placeholder': None,
-        'logged_in': False,
-        'username': None
-    }
-    for k, v in defaults.items():
-        if k not in st.session_state:
-            st.session_state[k] = v
+    """Initialize session state variables"""
+    if 'chats' not in st.session_state:
+        st.session_state.chats = {}
+    if 'current_chat_id' not in st.session_state:
+        st.session_state.current_chat_id = None
+    if 'client' not in st.session_state:
+        st.session_state.client = None
+    if 'last_error' not in st.session_state:
+        st.session_state.last_error = None
+    if 'is_responding' not in st.session_state:
+        st.session_state.is_responding = False
+    if 'current_message_placeholder' not in st.session_state:
+        st.session_state.current_message_placeholder = None
 
-# Chat functions
 def create_new_chat():
+    """Create a new chat session"""
     chat_id = str(uuid.uuid4())
-    chat_title = f"New chat {datetime.now().strftime('%H:%M')}"
+    timestamp = datetime.now().strftime("%H:%M")
+    chat_title = f"New chat {timestamp}"
+    
     st.session_state.chats[chat_id] = {
         'id': chat_id,
         'title': chat_title,
@@ -79,25 +95,32 @@ def create_new_chat():
         'created_at': datetime.now()
     }
     st.session_state.current_chat_id = chat_id
+    return chat_id
 
 def get_current_chat():
-    return st.session_state.chats.get(st.session_state.current_chat_id)
+    """Get the current chat session"""
+    if st.session_state.current_chat_id and st.session_state.current_chat_id in st.session_state.chats:
+        return st.session_state.chats[st.session_state.current_chat_id]
+    return None
 
 def update_chat_title(chat_id, title):
+    """Update the title of a chat"""
     if chat_id in st.session_state.chats:
         st.session_state.chats[chat_id]['title'] = title
 
-# OpenAI calls
-def setup_openai_client(api_key):
+def setup_openai_client(api_key: str):
+    """Setup OpenAI client with API key"""
     try:
         client = openai.OpenAI(api_key=api_key)
+        # Test the connection
         client.models.list()
         return client
     except Exception as e:
         st.error(f"Error connecting to OpenAI: {str(e)}")
         return None
 
-def create_or_get_thread(client, assistant_id, chat):
+def create_or_get_thread(client, assistant_id: str, chat):
+    """Create a new thread or get existing one"""
     try:
         if chat['thread_id'] is None:
             thread = client.beta.threads.create()
@@ -107,28 +130,39 @@ def create_or_get_thread(client, assistant_id, chat):
         st.error(f"Error creating thread: {str(e)}")
         return None
 
-def cancel_active_run(client, thread_id):
+def send_message(client, thread_id: str, message: str):
+    """Send a message to the assistant"""
     try:
-        runs = client.beta.threads.runs.list(thread_id=thread_id)
-        for run in runs.data:
-            if run.status in ["queued", "in_progress"]:
-                client.beta.threads.runs.cancel(thread_id=thread_id, run_id=run.id)
-    except:
-        pass
-
-def send_message(client, thread_id, message):
-    try:
+        # Cancel any active runs first
         cancel_active_run(client, thread_id)
-        client.beta.threads.messages.create(thread_id=thread_id, role="user", content=message)
-        run = client.beta.threads.runs.create(thread_id=thread_id, assistant_id=ASSISTANT_ID, instructions=ASSISTANT_SYSTEM_PROMPT)
+        
+        # Add message to thread
+        client.beta.threads.messages.create(
+            thread_id=thread_id,
+            role="user",
+            content=message
+        )
+        
+        # Run the assistant
+        run = client.beta.threads.runs.create(
+            thread_id=thread_id,
+            assistant_id=ASSISTANT_ID,
+            instructions=ASSISTANT_SYSTEM_PROMPT
+        )
+        
         return run.id
     except Exception as e:
         st.session_state.last_error = str(e)
         return None
 
-def get_run_status(client, thread_id, run_id):
+def get_run_status(client, thread_id: str, run_id: str):
+    """Get the status of a run and error details if failed"""
     try:
-        run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run_id)
+        run = client.beta.threads.runs.retrieve(
+            thread_id=thread_id,
+            run_id=run_id
+        )
+        # If failed, store error details
         if run.status == "failed":
             st.session_state.last_error = getattr(run, 'last_error', None) or getattr(run, 'error', None)
         return run.status
@@ -136,7 +170,22 @@ def get_run_status(client, thread_id, run_id):
         st.session_state.last_error = str(e)
         return None
 
-def get_assistant_response(client, thread_id):
+def cancel_active_run(client, thread_id: str):
+    """Cancel any active run in the thread"""
+    try:
+        runs = client.beta.threads.runs.list(thread_id=thread_id)
+        for run in runs.data:
+            if run.status in ["queued", "in_progress"]:
+                client.beta.threads.runs.cancel(
+                    thread_id=thread_id,
+                    run_id=run.id
+                )
+        return True
+    except Exception as e:
+        return False
+
+def get_assistant_response(client, thread_id: str):
+    """Get the assistant's response"""
     try:
         messages = client.beta.threads.messages.list(thread_id=thread_id)
         return messages.data[0].content[0].text.value
@@ -145,123 +194,139 @@ def get_assistant_response(client, thread_id):
         st.error(f"Error getting response: {str(e)}")
         return None
 
-# Stream response
-def stream_response(placeholder, response):
+def display_chat_history(chat):
+    """Display the chat history"""
+    if not chat['messages']:
+        # Show empty state without welcome message
+        pass
+    else:
+        for message in chat['messages']:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
+
+def stream_response(message_placeholder, response):
+    """Stream the response character by character"""
     full_response = ""
     for char in response:
+        # Check if user has interrupted
         if not st.session_state.is_responding:
             return full_response
+        
         full_response += char
-        placeholder.markdown(full_response + "▌")
-        time.sleep(0.005)
-    placeholder.markdown(full_response)
+        message_placeholder.markdown(full_response + "▌")
+        time.sleep(0.005)  # Much faster speed (0.005 = 200 characters per second)
+    
+    # Remove the cursor at the end
+    message_placeholder.markdown(full_response)
     return full_response
 
-# Log interaction locally
-def log_openai_interaction(prompt, assistant_response, username):
-    try:
-        logging.info("===== New Interaction =====")
-        logging.info(f"User: {username}")
-        logging.info(f"Prompt: {prompt}")
-        logging.info(f"Response: {assistant_response}")
-        logging.info("===========================")
-    except Exception as e:
-        logging.error(f"Logging error: {e}")
-
-# Main app
 def main():
+    # Initialize session state
     initialize_session_state()
-
+    
+    # Initialize OpenAI client if not already done
     if st.session_state.client is None:
         st.session_state.client = setup_openai_client(OPENAI_API_KEY)
         if st.session_state.client is None:
             st.error("❌ Failed to initialize OpenAI client. Please check your API key.")
             return
 
-    if not st.session_state.logged_in:
-        with st.form("login_form"):
-            st.title("Login")
-            username = st.text_input("Username")
-            password = st.text_input("Password", type="password")
-            if st.form_submit_button("Login"):
-                if username in ALLOWED_USERS and password == ALLOWED_USERS[username]:
-                    st.session_state.logged_in = True
-                    st.session_state.username = username
-                    st.rerun()
-                else:
-                    st.error("Invalid username or password")
-        return
+    # Login logic
+    if 'logged_in' not in st.session_state:
+        st.session_state.logged_in = False
 
+    if not st.session_state.logged_in:
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            with st.form(key='login_form'):
+                st.title("Login")
+                username = st.text_input("Username")
+                password = st.text_input("Password", type="password")
+                submit_button = st.form_submit_button("Login")
+
+                if submit_button:
+                    if username == "admin" and password == "1234":
+                        st.session_state.logged_in = True
+                        st.rerun()
+                    else:
+                        st.error("Invalid username or password")
+        return # Stop execution until logged in
+
+    # Automatically create a new chat if none exists
     if not st.session_state.current_chat_id:
         create_new_chat()
-
+    
     current_chat = get_current_chat()
-    for msg in current_chat['messages']:
-        with st.chat_message(msg["role"]):
-            st.markdown(msg["content"])
-
+    # Display chat history (Streamlit-native)
+    for message in current_chat['messages']:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+    # Always show the chat input bar
     prompt = st.chat_input("Type your message here...")
     if prompt:
-        username = st.session_state.get("username", "unknown")
-
-        log_openai_interaction(prompt, "", username)
-
+        # Log user message
+        log_openai_interaction(prompt, "")  # Log user input before sending
+        
+        # Check if bot is currently responding
         if st.session_state.is_responding:
+            # Stop the current response
             st.session_state.is_responding = False
             if st.session_state.current_message_placeholder:
-                st.session_state.current_message_placeholder.markdown("⚠️ Response interrupted.")
+                st.session_state.current_message_placeholder.markdown("⚠️ Sorry, I couldn't finish that answer.")
 
+        # Add user message to chat
         current_chat['messages'].append({"role": "user", "content": prompt})
+        
+        # Update chat title with first message
         if len(current_chat['messages']) == 1:
-            update_chat_title(current_chat['id'], prompt[:30] + "..." if len(prompt) > 30 else prompt)
-
+            new_title = prompt[:30] + "..." if len(prompt) > 30 else prompt
+            update_chat_title(current_chat['id'], new_title)
         with st.chat_message("user"):
             st.markdown(prompt)
-
+        
+        # Send message to assistant
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             st.session_state.current_message_placeholder = message_placeholder
             st.session_state.is_responding = True
-
+            
             thread_id = create_or_get_thread(st.session_state.client, ASSISTANT_ID, current_chat)
             if thread_id:
                 run_id = send_message(st.session_state.client, thread_id, prompt)
                 if run_id:
                     with st.spinner("🤔 Thinking..."):
                         while True:
+                            # Check if user has interrupted
                             if not st.session_state.is_responding:
                                 break
+                                  
                             status = get_run_status(st.session_state.client, thread_id, run_id)
                             if status == "completed":
                                 response = get_assistant_response(st.session_state.client, thread_id)
-                                if response:
-                                    log_openai_interaction(prompt, response, username)
-                                    try:
-                                        openai.chat.completions.create(
-                                            model="gpt-4",
-                                            messages=[
-                                                {"role": "system", "content": f"Interaction from user: {username}"},
-                                                {"role": "user", "content": prompt},
-                                                {"role": "assistant", "content": response}
-                                            ],
-                                            temperature=0,
-                                            max_tokens=1
-                                        )
-                                    except Exception as e:
-                                        logging.warning(f"Failed to shadow-log to OpenAI: {e}")
-
+                                if response and st.session_state.is_responding:
+                                    # Log assistant response
+                                    log_openai_interaction(prompt, response)  # Log assistant response
+                                    # Stream the response like ChatGPT
                                     stream_response(message_placeholder, response)
-                                    if st.session_state.is_responding:
+                                    if st.session_state.is_responding:  # Only add if not interrupted
                                         current_chat['messages'].append({"role": "assistant", "content": response})
+                                break
+                            elif status == "failed":
+                                message_placeholder.markdown("Please ask again.")
                                 break
                             elif status in ["queued", "in_progress"]:
                                 time.sleep(POLLING_INTERVAL)
                             else:
-                                message_placeholder.markdown("⚠️ Error. Please try again.")
+                                message_placeholder.markdown("Please ask again.")
                                 break
-
-        st.session_state.is_responding = False
-        st.session_state.current_message_placeholder = None
+                else:
+                    message_placeholder.markdown("Please ask again.")
+            else:
+                message_placeholder.markdown("Please ask again.")
+            
+            # Reset response state
+            st.session_state.is_responding = False
+            st.session_state.current_message_placeholder = None
 
 if __name__ == "__main__":
     main()

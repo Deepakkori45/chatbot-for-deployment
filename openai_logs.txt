@@ -628,3 +628,198 @@ Would you like me to help you with a Python code snippet to generate a simple ca
 Feel free to provide more details!
 2025-07-27 16:51:29,001 - ===========================
 2025-07-27 16:51:30,963 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 17:44:53,746 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 17:45:06,440 - ===== New Interaction =====
+2025-07-27 17:45:06,440 - User: admin
+2025-07-27 17:45:06,440 - Prompt: geneate the image
+2025-07-27 17:45:06,440 - Response: 
+2025-07-27 17:45:06,440 - ===========================
+2025-07-27 17:45:07,021 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-27 17:45:07,836 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs "HTTP/1.1 200 OK"
+2025-07-27 17:45:08,451 - HTTP Request: POST https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/messages "HTTP/1.1 200 OK"
+2025-07-27 17:45:09,885 - HTTP Request: POST https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs "HTTP/1.1 200 OK"
+2025-07-27 17:45:10,905 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_7OUqJxAd21Vb04t6ETRH4m5d "HTTP/1.1 200 OK"
+2025-07-27 17:45:12,444 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_7OUqJxAd21Vb04t6ETRH4m5d "HTTP/1.1 200 OK"
+2025-07-27 17:45:12,808 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/messages "HTTP/1.1 200 OK"
+2025-07-27 17:45:12,810 - ===== New Interaction =====
+2025-07-27 17:45:12,810 - User: admin
+2025-07-27 17:45:12,810 - Prompt: geneate the image
+2025-07-27 17:45:12,810 - Response: Could you please specify what kind of image you would like me to generate? Providing details or a description will help me create the image you need.
+2025-07-27 17:45:12,810 - ===========================
+2025-07-27 17:45:14,645 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 17:55:01,056 - ===== New Interaction =====
+2025-07-27 17:55:01,057 - User: admin
+2025-07-27 17:55:01,057 - Prompt: generat the image.
+2025-07-27 17:55:01,057 - Response: 
+2025-07-27 17:55:01,057 - ===========================
+2025-07-27 17:55:01,768 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs "HTTP/1.1 200 OK"
+2025-07-27 17:55:02,364 - HTTP Request: POST https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/messages "HTTP/1.1 200 OK"
+2025-07-27 17:55:05,541 - HTTP Request: POST https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs "HTTP/1.1 200 OK"
+2025-07-27 17:55:06,054 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_OkR9bNbThyvLHAWKp3UDNGXU "HTTP/1.1 200 OK"
+2025-07-27 17:55:07,691 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_OkR9bNbThyvLHAWKp3UDNGXU "HTTP/1.1 200 OK"
+2025-07-27 17:55:08,415 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/messages "HTTP/1.1 200 OK"
+2025-07-27 17:55:08,417 - ===== New Interaction =====
+2025-07-27 17:55:08,417 - User: admin
+2025-07-27 17:55:08,417 - Prompt: generat the image.
+2025-07-27 17:55:08,417 - Response: Sorry, I cannot assist with image or video generation.
+2025-07-27 17:55:08,417 - ===========================
+2025-07-27 17:55:09,278 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 17:55:17,064 - ===== New Interaction =====
+2025-07-27 17:55:17,065 - User: admin
+2025-07-27 17:55:17,065 - Prompt: cna you tell me do we ahve any image in database?
+2025-07-27 17:55:17,065 - Response: 
+2025-07-27 17:55:17,065 - ===========================
+2025-07-27 17:55:17,827 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs "HTTP/1.1 200 OK"
+2025-07-27 17:55:18,646 - HTTP Request: POST https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/messages "HTTP/1.1 200 OK"
+2025-07-27 17:55:19,876 - HTTP Request: POST https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs "HTTP/1.1 200 OK"
+2025-07-27 17:55:20,387 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:21,922 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:23,461 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:25,304 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:26,921 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:28,476 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:30,015 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:31,550 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:33,088 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/runs/run_JrpA9MYFOgbn7q4sZE76JtER "HTTP/1.1 200 OK"
+2025-07-27 17:55:33,499 - HTTP Request: GET https://api.openai.com/v1/threads/thread_T78LMcZ2whybdUqARlz9ISCC/messages "HTTP/1.1 200 OK"
+2025-07-27 17:55:33,501 - ===== New Interaction =====
+2025-07-27 17:55:33,501 - User: admin
+2025-07-27 17:55:33,501 - Prompt: cna you tell me do we ahve any image in database?
+2025-07-27 17:55:33,501 - Response: There are images and figures included within the uploaded presentation files related to EIPM customer satisfaction and other topics. These images are primarily charts and graphs illustrating data on customer attitudes, brand imagery, customer loyalty, satisfaction indices, and other related metrics. For example:
+
+- Factor analysis results about brand image statements grouped into themes like Caring & Trustworthy, Innovative & Financially Sound, etc. shown with visual charts.
+- Trend graphs showing customer satisfaction and loyalty scores over the years.
+- Distribution charts like Promoters, Passives, Detractors in Net Promoter Score (NPS).
+- Customer experience ratings across several parameters like quality, delivery, communication.
+- Bar charts and statistical images about perception levels on attributes such as price, value, quality, and leadership.
+
+These images exist across multiple PowerPoint files such as "EIPM 2016.pptx", "EIPM 2017.pptx", "EIPM 2015.pptx", "EIPM 2014.pptx", "EIPM 2013.pptx", and others, which contain these visual data representations embedded in their slides.
+
+If you want details or summaries based on these images or data representations, I can help extract the relevant information. However, I cannot generate or recreate these images directly. Please let me know how you would like to proceed.
+2025-07-27 17:55:33,502 - ===========================
+2025-07-27 17:55:34,518 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 17:58:01,054 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 17:58:10,414 - ===== New Interaction =====
+2025-07-27 17:58:10,414 - User: admin
+2025-07-27 17:58:10,415 - Prompt: Hi
+2025-07-27 17:58:10,415 - Response: 
+2025-07-27 17:58:10,415 - ===========================
+2025-07-27 17:58:10,984 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-27 17:58:11,602 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs "HTTP/1.1 200 OK"
+2025-07-27 17:58:12,213 - HTTP Request: POST https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/messages "HTTP/1.1 200 OK"
+2025-07-27 17:58:13,649 - HTTP Request: POST https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs "HTTP/1.1 200 OK"
+2025-07-27 17:58:14,208 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_JKpGkohde5qaOH91Biz3vaiX "HTTP/1.1 200 OK"
+2025-07-27 17:58:15,696 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_JKpGkohde5qaOH91Biz3vaiX "HTTP/1.1 200 OK"
+2025-07-27 17:58:17,233 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_JKpGkohde5qaOH91Biz3vaiX "HTTP/1.1 200 OK"
+2025-07-27 17:58:17,678 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/messages "HTTP/1.1 200 OK"
+2025-07-27 17:58:17,679 - ===== New Interaction =====
+2025-07-27 17:58:17,679 - User: admin
+2025-07-27 17:58:17,679 - Prompt: Hi
+2025-07-27 17:58:17,679 - Response: Hello! How can I assist you today?
+2025-07-27 17:58:17,679 - ===========================
+2025-07-27 17:58:18,970 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 17:58:23,077 - ===== New Interaction =====
+2025-07-27 17:58:23,077 - User: admin
+2025-07-27 17:58:23,078 - Prompt: tak 4 
+2025-07-27 17:58:23,078 - Response: 
+2025-07-27 17:58:23,078 - ===========================
+2025-07-27 17:58:23,684 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs "HTTP/1.1 200 OK"
+2025-07-27 17:58:24,270 - HTTP Request: POST https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/messages "HTTP/1.1 200 OK"
+2025-07-27 17:58:37,199 - HTTP Request: POST https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs "HTTP/1.1 200 OK"
+2025-07-27 17:58:37,708 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_VNiqyoHkd1gOWmkiZbFh16ZP "HTTP/1.1 200 OK"
+2025-07-27 17:58:39,247 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_VNiqyoHkd1gOWmkiZbFh16ZP "HTTP/1.1 200 OK"
+2025-07-27 17:58:40,712 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_VNiqyoHkd1gOWmkiZbFh16ZP "HTTP/1.1 200 OK"
+2025-07-27 17:58:41,193 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/messages "HTTP/1.1 200 OK"
+2025-07-27 17:58:41,195 - ===== New Interaction =====
+2025-07-27 17:58:41,195 - User: admin
+2025-07-27 17:58:41,195 - Prompt: tak 4 
+2025-07-27 17:58:41,195 - Response: It looks like your message is "tak 4." Could you please clarify or provide more details so I can assist you better?
+2025-07-27 17:58:41,195 - ===========================
+2025-07-27 17:58:41,907 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 18:00:43,647 - ===== New Interaction =====
+2025-07-27 18:00:43,647 - User: admin
+2025-07-27 18:00:43,647 - Prompt: thnx
+2025-07-27 18:00:43,648 - Response: 
+2025-07-27 18:00:43,648 - ===========================
+2025-07-27 18:00:44,381 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs "HTTP/1.1 200 OK"
+2025-07-27 18:00:44,988 - HTTP Request: POST https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/messages "HTTP/1.1 200 OK"
+2025-07-27 18:00:46,837 - HTTP Request: POST https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs "HTTP/1.1 200 OK"
+2025-07-27 18:00:47,451 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_KExOGiGe0iF1hiMQ7HleNJLD "HTTP/1.1 200 OK"
+2025-07-27 18:00:49,090 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/runs/run_KExOGiGe0iF1hiMQ7HleNJLD "HTTP/1.1 200 OK"
+2025-07-27 18:00:49,480 - HTTP Request: GET https://api.openai.com/v1/threads/thread_uDIvcHOkJjDieSSGmnOVpw1p/messages "HTTP/1.1 200 OK"
+2025-07-27 18:00:49,483 - ===== New Interaction =====
+2025-07-27 18:00:49,483 - User: admin
+2025-07-27 18:00:49,483 - Prompt: thnx
+2025-07-27 18:00:49,483 - Response: You’re welcome! If you have any other questions or need assistance, feel free to ask.
+2025-07-27 18:00:49,483 - ===========================
+2025-07-27 18:00:50,202 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 18:01:50,836 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 18:04:25,656 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 18:11:35,131 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 18:11:55,267 - ===== New Interaction =====
+2025-07-27 18:11:55,267 - User: deepak
+2025-07-27 18:11:55,267 - Prompt: hi
+2025-07-27 18:11:55,268 - Response: 
+2025-07-27 18:11:55,268 - ===========================
+2025-07-27 18:11:55,740 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-27 18:11:56,218 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs "HTTP/1.1 200 OK"
+2025-07-27 18:11:56,732 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/messages "HTTP/1.1 200 OK"
+2025-07-27 18:11:58,064 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs "HTTP/1.1 200 OK"
+2025-07-27 18:11:58,576 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs/run_3sHG5lGgjl3YjBqE4OwsDKYV "HTTP/1.1 200 OK"
+2025-07-27 18:12:00,030 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs/run_3sHG5lGgjl3YjBqE4OwsDKYV "HTTP/1.1 200 OK"
+2025-07-27 18:12:00,420 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/messages "HTTP/1.1 200 OK"
+2025-07-27 18:12:00,421 - ===== New Interaction =====
+2025-07-27 18:12:00,421 - User: deepak
+2025-07-27 18:12:00,421 - Prompt: hi
+2025-07-27 18:12:00,421 - Response: Hello! How can I assist you today?
+2025-07-27 18:12:00,421 - ===========================
+2025-07-27 18:12:01,546 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 18:12:06,716 - ===== New Interaction =====
+2025-07-27 18:12:06,716 - User: deepak
+2025-07-27 18:12:06,717 - Prompt: testing 10 take 
+2025-07-27 18:12:06,717 - Response: 
+2025-07-27 18:12:06,717 - ===========================
+2025-07-27 18:12:07,482 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs "HTTP/1.1 200 OK"
+2025-07-27 18:12:08,098 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/messages "HTTP/1.1 200 OK"
+2025-07-27 18:12:09,327 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs "HTTP/1.1 200 OK"
+2025-07-27 18:12:09,942 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs/run_MFeOxjvJQ1xoBAhZwRu5yhtc "HTTP/1.1 200 OK"
+2025-07-27 18:12:11,482 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs/run_MFeOxjvJQ1xoBAhZwRu5yhtc "HTTP/1.1 200 OK"
+2025-07-27 18:12:13,048 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/runs/run_MFeOxjvJQ1xoBAhZwRu5yhtc "HTTP/1.1 200 OK"
+2025-07-27 18:12:13,422 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ur3Q8NiNI6vZB6oZbauCjpIl/messages "HTTP/1.1 200 OK"
+2025-07-27 18:12:13,434 - ===== New Interaction =====
+2025-07-27 18:12:13,434 - User: deepak
+2025-07-27 18:12:13,434 - Prompt: testing 10 take 
+2025-07-27 18:12:13,434 - Response: Hello! It looks like you're testing. How can I assist you with "testing 10 take"? Could you please provide more details or clarify your request?
+2025-07-27 18:12:13,434 - ===========================
+2025-07-27 18:12:14,858 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 18:13:46,468 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 18:14:07,923 - ===== New Interaction =====
+2025-07-27 18:14:07,923 - User: admin
+2025-07-27 18:14:07,923 - Prompt: Hi can you help em take 11
+2025-07-27 18:14:07,924 - Response: 
+2025-07-27 18:14:07,924 - ===========================
+2025-07-27 18:14:08,460 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-27 18:14:08,825 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ds9sJVgfEgan5NOVAneiBusp/runs "HTTP/1.1 200 OK"
+2025-07-27 18:14:09,414 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ds9sJVgfEgan5NOVAneiBusp/messages "HTTP/1.1 200 OK"
+2025-07-27 18:14:15,777 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ds9sJVgfEgan5NOVAneiBusp/runs "HTTP/1.1 200 OK"
+2025-07-27 18:14:16,352 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ds9sJVgfEgan5NOVAneiBusp/runs/run_atdS5710tUN5vPFHtcCZCMJA "HTTP/1.1 200 OK"
+2025-07-27 18:14:17,862 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ds9sJVgfEgan5NOVAneiBusp/runs/run_atdS5710tUN5vPFHtcCZCMJA "HTTP/1.1 200 OK"
+2025-07-27 18:14:18,229 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ds9sJVgfEgan5NOVAneiBusp/messages "HTTP/1.1 200 OK"
+2025-07-27 18:14:18,230 - ===== New Interaction =====
+2025-07-27 18:14:18,230 - User: admin
+2025-07-27 18:14:18,230 - Prompt: Hi can you help em take 11
+2025-07-27 18:14:18,230 - Response: I'm sorry, I didn't understand your request. Could you please clarify what you need help with?
+2025-07-27 18:14:18,230 - ===========================
+2025-07-27 18:14:19,775 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-27 18:19:45,620 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 18:19:52,957 - User Prompt: Hi
+2025-07-27 18:19:52,957 - Assistant Response: 
+2025-07-27 18:19:53,461 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-27 18:19:53,825 - HTTP Request: GET https://api.openai.com/v1/threads/thread_9GP7oEJO2W5lTxCFe4YVMp4S/runs "HTTP/1.1 200 OK"
+2025-07-27 18:19:54,521 - HTTP Request: POST https://api.openai.com/v1/threads/thread_9GP7oEJO2W5lTxCFe4YVMp4S/messages "HTTP/1.1 200 OK"
+2025-07-27 18:19:55,857 - HTTP Request: POST https://api.openai.com/v1/threads/thread_9GP7oEJO2W5lTxCFe4YVMp4S/runs "HTTP/1.1 200 OK"
+2025-07-27 18:19:56,472 - HTTP Request: GET https://api.openai.com/v1/threads/thread_9GP7oEJO2W5lTxCFe4YVMp4S/runs/run_DX5cP9GTXGyu8LmDeMq7ZpF2 "HTTP/1.1 200 OK"
+2025-07-27 18:19:58,725 - HTTP Request: GET https://api.openai.com/v1/threads/thread_9GP7oEJO2W5lTxCFe4YVMp4S/runs/run_DX5cP9GTXGyu8LmDeMq7ZpF2 "HTTP/1.1 200 OK"
+2025-07-27 18:19:59,326 - HTTP Request: GET https://api.openai.com/v1/threads/thread_9GP7oEJO2W5lTxCFe4YVMp4S/messages "HTTP/1.1 200 OK"
+2025-07-27 18:19:59,342 - User Prompt: Hi
+2025-07-27 18:19:59,343 - Assistant Response: Hello! How can I assist you today?
