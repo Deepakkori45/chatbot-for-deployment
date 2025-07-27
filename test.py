@@ -45,6 +45,12 @@ logging.basicConfig(filename='openai_logs.txt', level=logging.INFO, format='%(as
 # OpenAI key
 openai.api_key = OPENAI_API_KEY
 
+# Allowed users
+ALLOWED_USERS = {
+    "admin": "1234",
+    "deepak": "1234"
+}
+
 # Session state init
 def initialize_session_state():
     defaults = {
@@ -178,9 +184,9 @@ def main():
             username = st.text_input("Username")
             password = st.text_input("Password", type="password")
             if st.form_submit_button("Login"):
-                if username and password == "1234":
+                if username in ALLOWED_USERS and password == ALLOWED_USERS[username]:
                     st.session_state.logged_in = True
-                    st.session_state.username = username  # ✅ Correctly store username
+                    st.session_state.username = username
                     st.rerun()
                 else:
                     st.error("Invalid username or password")
