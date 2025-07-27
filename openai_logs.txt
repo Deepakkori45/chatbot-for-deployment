@@ -1,0 +1,286 @@
+2025-07-26 21:15:06,996 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-26 21:15:57,906 - Retrying request to /models in 0.407960 seconds
+2025-07-26 21:16:05,603 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-26 21:16:27,278 - User Prompt: testing interface take 1
+2025-07-26 21:16:27,278 - Assistant Response: 
+2025-07-26 21:16:27,848 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-26 21:16:28,257 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs "HTTP/1.1 200 OK"
+2025-07-26 21:16:28,861 - HTTP Request: POST https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/messages "HTTP/1.1 200 OK"
+2025-07-26 21:16:30,100 - HTTP Request: POST https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs "HTTP/1.1 200 OK"
+2025-07-26 21:16:30,609 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs/run_vf9kvHa1Eng3YimJZMmJ0SMU "HTTP/1.1 200 OK"
+2025-07-26 21:16:32,137 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs/run_vf9kvHa1Eng3YimJZMmJ0SMU "HTTP/1.1 200 OK"
+2025-07-26 21:16:33,684 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs/run_vf9kvHa1Eng3YimJZMmJ0SMU "HTTP/1.1 200 OK"
+2025-07-26 21:16:34,090 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/messages "HTTP/1.1 200 OK"
+2025-07-26 21:16:34,090 - User Prompt: testing interface take 1
+2025-07-26 21:16:34,090 - Assistant Response: Hello! Your test message has been received. How can I assist you today?
+2025-07-26 21:16:44,130 - User Prompt: take 2
+2025-07-26 21:16:44,131 - Assistant Response: 
+2025-07-26 21:16:44,744 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs "HTTP/1.1 200 OK"
+2025-07-26 21:16:45,278 - HTTP Request: POST https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/messages "HTTP/1.1 200 OK"
+2025-07-26 21:16:46,788 - HTTP Request: POST https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs "HTTP/1.1 200 OK"
+2025-07-26 21:16:47,274 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs/run_WF15FUBJNuMo1oOmQUAn9Tt7 "HTTP/1.1 200 OK"
+2025-07-26 21:16:48,732 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/runs/run_WF15FUBJNuMo1oOmQUAn9Tt7 "HTTP/1.1 200 OK"
+2025-07-26 21:16:49,142 - HTTP Request: GET https://api.openai.com/v1/threads/thread_XZep3Dh2j51ms02Gn7KKiyWp/messages "HTTP/1.1 200 OK"
+2025-07-26 21:16:49,142 - User Prompt: take 2
+2025-07-26 21:16:49,142 - Assistant Response: Message received! Let me know how I can assist you further.
+2025-07-26 21:38:04,859 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:38:04,859 - User Prompt: hi
+2025-07-26 21:38:04,859 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:38:08,248 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:38:08,248 - User Prompt: hicann yhoud
+2025-07-26 21:38:08,248 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:38:45,128 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:38:45,128 - User Prompt: hicann yhoudf
+2025-07-26 21:38:45,128 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:38:45,814 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:38:45,814 - User Prompt: hicann yhoudfdf
+2025-07-26 21:38:45,814 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:38:47,058 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:38:47,058 - User Prompt: hicann yhoudfdf 
+2025-07-26 21:38:47,059 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:39:02,039 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:39:02,039 - User Prompt: j
+2025-07-26 21:39:02,039 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:39:44,525 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:39:44,525 - User Prompt: j
+2025-07-26 21:39:44,525 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:39:50,407 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:39:50,407 - User Prompt: Hi
+2025-07-26 21:39:50,407 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:40:20,885 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:40:20,885 - User Prompt: Hi
+2025-07-26 21:40:20,885 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:48:50,863 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-26 21:48:51,005 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-26 21:48:51,857 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-26 21:49:01,233 - User Prompt: Hi
+2025-07-26 21:49:01,233 - Assistant Response: 
+2025-07-26 21:49:01,830 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-26 21:49:02,239 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs "HTTP/1.1 200 OK"
+2025-07-26 21:49:02,913 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/messages "HTTP/1.1 200 OK"
+2025-07-26 21:49:04,871 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs "HTTP/1.1 200 OK"
+2025-07-26 21:49:05,400 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs/run_P5OM1PThhLsVybCongxZ71Dt "HTTP/1.1 200 OK"
+2025-07-26 21:49:06,950 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs/run_P5OM1PThhLsVybCongxZ71Dt "HTTP/1.1 200 OK"
+2025-07-26 21:49:10,329 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs/run_P5OM1PThhLsVybCongxZ71Dt "HTTP/1.1 200 OK"
+2025-07-26 21:49:10,843 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/messages "HTTP/1.1 200 OK"
+2025-07-26 21:49:10,844 - User Prompt: Hi
+2025-07-26 21:49:10,844 - Assistant Response: Hello! How can I assist you today?
+2025-07-26 21:49:12,625 - User Prompt: can you help
+2025-07-26 21:49:12,625 - Assistant Response: 
+2025-07-26 21:49:13,213 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs "HTTP/1.1 200 OK"
+2025-07-26 21:49:13,811 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/messages "HTTP/1.1 200 OK"
+2025-07-26 21:49:15,030 - HTTP Request: POST https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs "HTTP/1.1 200 OK"
+2025-07-26 21:49:15,547 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs/run_3ejn6FLxcKtwos98A0r5R5X3 "HTTP/1.1 200 OK"
+2025-07-26 21:49:17,036 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs/run_3ejn6FLxcKtwos98A0r5R5X3 "HTTP/1.1 200 OK"
+2025-07-26 21:49:18,510 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/runs/run_3ejn6FLxcKtwos98A0r5R5X3 "HTTP/1.1 200 OK"
+2025-07-26 21:49:18,925 - HTTP Request: GET https://api.openai.com/v1/threads/thread_ic71pKBNVv3vyC1L1YcQVGgv/messages "HTTP/1.1 200 OK"
+2025-07-26 21:49:18,933 - User Prompt: can you help
+2025-07-26 21:49:18,933 - Assistant Response: Of course! Please let me know what you need help with.
+2025-07-26 21:51:46,317 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:51:46,317 - User Prompt: mfd
+2025-07-26 21:51:46,317 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:52:14,660 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:52:14,661 - User Prompt: mfd
+2025-07-26 21:52:14,661 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:52:16,435 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:52:16,435 - User Prompt: mfdJ]
+2025-07-26 21:52:16,435 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:52:31,558 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:52:31,558 - User Prompt: mfdJ]
+2025-07-26 21:52:31,558 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:52:32,854 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:52:32,854 - User Prompt: mfdJ]fs
+2025-07-26 21:52:32,854 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:57:32,195 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:57:32,196 - User Prompt: mfdJ]fs
+2025-07-26 21:57:32,196 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 21:57:37,387 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-26 21:57:37,387 - User Prompt: Hi
+2025-07-26 21:57:37,387 - Assistant Response: Sorry, I couldn't process that request.
+2025-07-26 22:06:07,508 - Error: 
+
+You tried to access openai.Completion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-07-27 12:26:30,051 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-07-27 12:26:42,794 - User Prompt: Hi
+2025-07-27 12:26:42,795 - Assistant Response: 
+2025-07-27 12:26:43,733 - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-07-27 12:26:44,315 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 200 OK"
+2025-07-27 12:26:45,410 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/messages "HTTP/1.1 200 OK"
+2025-07-27 12:26:46,019 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 400 Bad Request"
+2025-07-27 12:26:49,101 - User Prompt: can you helop me with
+2025-07-27 12:26:49,101 - Assistant Response: 
+2025-07-27 12:26:49,711 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 200 OK"
+2025-07-27 12:26:50,319 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/messages "HTTP/1.1 200 OK"
+2025-07-27 12:26:50,734 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 400 Bad Request"
+2025-07-27 12:27:21,188 - User Prompt: Hi
+2025-07-27 12:27:21,188 - Assistant Response: 
+2025-07-27 12:27:21,655 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 200 OK"
+2025-07-27 12:27:22,782 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/messages "HTTP/1.1 200 OK"
+2025-07-27 12:27:24,468 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 200 OK"
+2025-07-27 12:27:25,346 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs/run_LPbDVY8FHyvLZCvzWyQFHoCu "HTTP/1.1 200 OK"
+2025-07-27 12:27:27,041 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs/run_LPbDVY8FHyvLZCvzWyQFHoCu "HTTP/1.1 200 OK"
+2025-07-27 12:27:28,623 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs/run_LPbDVY8FHyvLZCvzWyQFHoCu "HTTP/1.1 200 OK"
+2025-07-27 12:27:29,130 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/messages "HTTP/1.1 200 OK"
+2025-07-27 12:27:29,130 - User Prompt: Hi
+2025-07-27 12:27:29,130 - Assistant Response: Hello! How can I assist you today?
+2025-07-27 12:27:31,847 - User Prompt: sd
+2025-07-27 12:27:31,847 - Assistant Response: 
+2025-07-27 12:27:32,412 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 200 OK"
+2025-07-27 12:27:36,730 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/messages "HTTP/1.1 200 OK"
+2025-07-27 12:27:42,704 - HTTP Request: POST https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs "HTTP/1.1 200 OK"
+2025-07-27 12:27:43,282 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/runs/run_pc0qGSX4Xw0ZE168F8d4lKaD "HTTP/1.1 200 OK"
+2025-07-27 12:27:43,796 - HTTP Request: GET https://api.openai.com/v1/threads/thread_s1285wmfQxv90nw5XJQm9DuJ/messages "HTTP/1.1 200 OK"
+2025-07-27 12:27:43,802 - User Prompt: sd
+2025-07-27 12:27:43,802 - Assistant Response: I’m here to help! Could you please provide more details or clarify your request?
+2025-07-27 13:09:33,048 - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"

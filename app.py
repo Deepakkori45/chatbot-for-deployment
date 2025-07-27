@@ -4,12 +4,39 @@ import os
 from dotenv import load_dotenv
 import time
 from typing import List, Dict, Any
-import config
 import uuid
 from datetime import datetime
+import logging
 
 # Load environment variables
 load_dotenv()
+
+# --- Configuration from config.py ---
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_PytLeS8CwhZiswnc11HCsmbO")
+ASSISTANT_SYSTEM_PROMPT = (
+    "You are a helpful assistant. Rely solely on the supplied knowledge base. "
+    "If the answer isn’t there, reply: ‘I’m sorry, that information isn’t in my database. "
+    "Please re-ask using topics the database covers. Keep every reply directly focused on the question. "
+    "Present the reply as a numbered or bulleted list.’"
+)
+CUSTOM_CSS = """
+<style>
+.error-box {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    border-left: 4px solid #dc3545;
+}
+.stChatInput {
+    margin-top: 2rem;
+}
+</style>
+"""
+POLLING_INTERVAL = 1  # seconds
+# -------------------------------------
 
 # Page configuration
 st.set_page_config(
@@ -20,7 +47,24 @@ st.set_page_config(
 )
 
 # Apply custom CSS
-st.markdown(config.CUSTOM_CSS, unsafe_allow_html=True)
+st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+# Configure logging to log OpenAI interactions
+logging.basicConfig(filename='openai_logs.txt', level=logging.INFO, format='%(asctime)s - %(message)s')
+
+# OpenAI API Key setup
+openai.api_key = 'YOUR_API_KEY'
+
+def log_openai_interaction(prompt, assistant_response):
+    """Log OpenAI interaction both to OpenAI logs and locally"""
+    try:
+        # Log input and output to the OpenAI logs file
+        logging.info(f"User Prompt: {prompt}")
+        logging.info(f"Assistant Response: {assistant_response}")
+        return assistant_response
+    except Exception as e:
+        logging.error(f"Error: {str(e)}")
+        return None
 
 def initialize_session_state():
     """Initialize session state variables"""
@@ -102,8 +146,8 @@ def send_message(client, thread_id: str, message: str):
         # Run the assistant
         run = client.beta.threads.runs.create(
             thread_id=thread_id,
-            assistant_id=config.ASSISTANT_ID,
-            instructions=config.ASSISTANT_SYSTEM_PROMPT
+            assistant_id=ASSISTANT_ID,
+            instructions=ASSISTANT_SYSTEM_PROMPT
         )
         
         return run.id
@@ -182,7 +226,7 @@ def main():
     
     # Initialize OpenAI client if not already done
     if st.session_state.client is None:
-        st.session_state.client = setup_openai_client(config.OPENAI_API_KEY)
+        st.session_state.client = setup_openai_client(OPENAI_API_KEY)
         if st.session_state.client is None:
             st.error("❌ Failed to initialize OpenAI client. Please check your API key.")
             return
@@ -220,6 +264,9 @@ def main():
     # Always show the chat input bar
     prompt = st.chat_input("Type your message here...")
     if prompt:
+        # Log user message
+        log_openai_interaction(prompt, "")  # Log user input before sending
+        
         # Check if bot is currently responding
         if st.session_state.is_responding:
             # Stop the current response
@@ -229,6 +276,7 @@ def main():
 
         # Add user message to chat
         current_chat['messages'].append({"role": "user", "content": prompt})
+        
         # Update chat title with first message
         if len(current_chat['messages']) == 1:
             new_title = prompt[:30] + "..." if len(prompt) > 30 else prompt
@@ -242,7 +290,7 @@ def main():
             st.session_state.current_message_placeholder = message_placeholder
             st.session_state.is_responding = True
             
-            thread_id = create_or_get_thread(st.session_state.client, config.ASSISTANT_ID, current_chat)
+            thread_id = create_or_get_thread(st.session_state.client, ASSISTANT_ID, current_chat)
             if thread_id:
                 run_id = send_message(st.session_state.client, thread_id, prompt)
                 if run_id:
@@ -256,7 +304,8 @@ def main():
                             if status == "completed":
                                 response = get_assistant_response(st.session_state.client, thread_id)
                                 if response and st.session_state.is_responding:
-                                    print(f"Assistant Response: {response}") # For analysis/debugging
+                                    # Log assistant response
+                                    log_openai_interaction(prompt, response)  # Log assistant response
                                     # Stream the response like ChatGPT
                                     stream_response(message_placeholder, response)
                                     if st.session_state.is_responding:  # Only add if not interrupted
@@ -266,7 +315,7 @@ def main():
                                 message_placeholder.markdown("Please ask again.")
                                 break
                             elif status in ["queued", "in_progress"]:
-                                time.sleep(config.POLLING_INTERVAL)
+                                time.sleep(POLLING_INTERVAL)
                             else:
                                 message_placeholder.markdown("Please ask again.")
                                 break
