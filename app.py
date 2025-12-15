@@ -9,7 +9,6 @@ import logging
 # Load environment variables 
 load_dotenv()
 
-
 # Configuration
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_PytLeS8CwhZiswnc11HCsmbO")
@@ -20,7 +19,6 @@ ASSISTANT_SYSTEM_PROMPT = (
     "Present the reply as a numbered or bulleted list.’"
 ) 
 POLLING_INTERVAL = 1
-
 
 # UI Styling
 st.set_page_config(page_title="AI Assistant Chat", page_icon="🤖", layout="wide")
