@@ -17,7 +17,7 @@ ASSISTANT_SYSTEM_PROMPT = (
     "You are a helpful assistant. Rely solely on the supplied knowledge base. "
     "If the answer isn’t there, reply: ‘I’m sorry, that information isn’t in my database. "
     "Please re-ask using topics the database covers. Keep every reply directly focused on the question. "
-    "Present the reply as a numbered or bulletedlist.’"
+    "Present the reply as a numbered or bulleted list.’"
 ) 
 POLLING_INTERVAL = 1
 
