@@ -20,6 +20,7 @@ ASSISTANT_SYSTEM_PROMPT = (
 ) 
 POLLING_INTERVAL = 1
 
+
 # UI Styling
 st.set_page_config(page_title="AI Assistant Chat", page_icon="🤖", layout="wide")
 st.markdown("""
