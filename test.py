@@ -13,6 +13,7 @@ import logging
 load_dotenv() 
 # --- Configuration from config.py ---
 
+
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_PytLeS8CwhZiswnc11HCsmbO")
 ASSISTANT_SYSTEM_PROMPT = (
