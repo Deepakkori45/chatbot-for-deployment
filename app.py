@@ -9,6 +9,7 @@ import logging
 # Load environment variables 
 load_dotenv()
 
+
 # Configuration
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 ASSISTANT_ID = os.getenv("ASSISTANT_ID", "asst_PytLeS8CwhZiswnc11HCsmbO")
